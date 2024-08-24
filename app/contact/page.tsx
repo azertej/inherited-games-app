@@ -3,7 +3,8 @@ import ContactForm from '@/components/ContactForm'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 import { useToast } from '@/components/ui/use-toast'
 
 const Page = () => {

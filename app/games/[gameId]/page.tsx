@@ -5,7 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { Joystick } from 'lucide-react'
 import { Palette } from 'lucide-react'
 import { Server } from 'lucide-react'
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 
 const Page = ({ params }: { params: { gameId: number } }) => {
 

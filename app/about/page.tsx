@@ -3,7 +3,8 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { RiRidingFill, RiVidiconFill, RiVipCrown2Fill } from 'react-icons/ri'
 import { ArrowBigLeft, ArrowBigRight } from 'lucide-react'
-import { Fade } from "react-awesome-reveal";
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 
 
 const infoData = [
@@ -16,8 +17,9 @@ const infoData = [
 
 const Page = () => {
   const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3000'
-  const [infos, setInfos] = useState([])
+  const [infos, setInfos] = useState<any>([])
   const [imageIndex, setImageIndex] = useState(0)
+
 
 
   useEffect(() => {

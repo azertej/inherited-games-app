@@ -74,7 +74,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), function ({ addUtilities }) {
+  plugins: [require("tailwindcss-animate"), function ({ addUtilities }: any) {
     const newUtilities = {
       '.scroll-snap-y-mandatory': {
         'scroll-snap-type': 'y mandatory',

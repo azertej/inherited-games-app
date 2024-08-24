@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+// @ts-ignore
 import { Link } from 'react-scroll';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

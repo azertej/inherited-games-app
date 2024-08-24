@@ -5,7 +5,8 @@ import React from 'react'
 import Badge from '../Badge'
 import { RiBookmark3Fill, RiServiceFill } from 'react-icons/ri'
 import { GrAchievement } from "react-icons/gr"
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 
 const Hero = ({ infos }: any) => {
     return (

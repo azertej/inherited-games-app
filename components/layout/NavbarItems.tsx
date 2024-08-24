@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import { Gamepad2 } from 'lucide-react'
+// @ts-ignore
 import { Link } from 'react-scroll'
 import { TransitionLinks } from '@/lib/TransitionLinks'
 import { cn } from '@/lib/utils'
@@ -68,7 +69,7 @@ const NavbarItems = ({ open, setOpen }: openItemsProps) => {
             {games.map((game: any) => {
               return (
                 <DropdownMenuItem key={game._id}>
-                  <TransitionLinks href={`/games/${game._id}`}>
+                  <TransitionLinks href={`/games/${game._id}` }>
                     <div className='flex' onClick={() => setOpen((prev: any) => !prev)}>
                       <Gamepad2 size={20} /> <span className="ml-2">{game.title}</span>
                     </div>

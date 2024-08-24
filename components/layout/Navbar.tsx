@@ -7,7 +7,8 @@ import { Facebook, AlignJustify, Instagram, Linkedin, X } from 'lucide-react'
 import { FaDiscord } from "react-icons/fa6"
 import NavbarImage from './NavbarImage'
 import { Button } from '../ui/button'
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 
 const Navbar = () => {
 

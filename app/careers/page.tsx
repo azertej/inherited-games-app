@@ -5,7 +5,8 @@ import useScrollProgress from '@/hooks/useScrollProgress'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 
 const Page = () => {
   const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3000'

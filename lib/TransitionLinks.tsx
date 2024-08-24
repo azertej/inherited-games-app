@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 interface TransitionLinksProps{
     children: ReactNode,
     href: string,
-    className: string
+    className?: string
 }
 
 export const TransitionLinks = ({ children, className, href, ...props }: TransitionLinksProps) => {

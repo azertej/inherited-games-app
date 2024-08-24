@@ -1,11 +1,13 @@
 'use client'
 import React from 'react'
+// @ts-ignore
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/free-mode'
-
+// @ts-ignore
 import { FreeMode, Pagination } from 'swiper/modules'
 import { RxArrowTopRight } from 'react-icons/rx'
 import { useRouter } from 'next/navigation'

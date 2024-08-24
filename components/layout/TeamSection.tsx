@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/button'
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 
 const TeamSection = ({teams}: any) => {
 

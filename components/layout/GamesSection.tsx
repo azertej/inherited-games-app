@@ -1,18 +1,21 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '../ui/button'
 import Link from 'next/link'
-import { Fade } from 'react-awesome-reveal'
+// @ts-ignore
+import { Fade } from "react-awesome-reveal"
 import { useRouter } from 'next/navigation'
 import { TransitionLinks } from '@/lib/TransitionLinks'
 
 const GamesSection = ({games}:any) => {
-  const ref = useRef()
+
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref })
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
   const router = useRouter()
+
   return (
     <motion.div
       className='h-auto bg-opacity-80 bg-contain '
