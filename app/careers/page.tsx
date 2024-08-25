@@ -9,16 +9,20 @@ import React, { useEffect, useState } from 'react'
 import { Fade } from "react-awesome-reveal"
 
 const Page = () => {
-  const externeURL = 'https://inherited-games-bo.vercel.app/'
+  const externeURL = 'https://inherited-games-bo.vercel.app'
   const completion = useScrollProgress()
   const [events, setEvents] = useState<any>([])
   const router = useRouter()
+  
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/Career-events/get-events`, {
+        const url = `${externeURL}/api/Career-events/get-events`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
+
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }

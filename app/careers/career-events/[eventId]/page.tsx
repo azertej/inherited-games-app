@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react'
 
 const Page = ({ params }: { params: { eventId: number } }) => {
 
-    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app/'
+    const externeURL = 'https://inherited-games-bo.vercel.app'
     const [events, setEvents] = useState([])
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await fetch(`${externeURL}/api/Career-events/get-events`, {
+                const url = `${externeURL}/api/Career-events/get-events`
+                console.log('Fetching URL:', url)
+                const response = await fetch(url, {
                     redirect: 'follow'
                 })
                 if (!response.ok) {
