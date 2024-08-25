@@ -8,7 +8,7 @@ import Hero from '@/components/layout/Hero';
 
 export default function Home() {
 
-  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app'
+  const externeURL = 'https://inherited-games-bo.vercel.app'
   const [games, setGames] = useState([])
   const [infos, setInfos] = useState([])
   const [teams, setTeams] = useState([])
@@ -17,7 +17,9 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/games/get-games`, {
+        const url = `${externeURL}/api/games/get-games`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
         if (!response.ok) {
@@ -33,7 +35,9 @@ export default function Home() {
     fetchPosts()
     const fetchInfos = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/landingPage/get-heroSection-info`, {
+        const url = `${externeURL}/api/landingPage/get-heroSection-info`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
         if (!response.ok) {
@@ -49,7 +53,9 @@ export default function Home() {
     fetchInfos()
     const fetchTeam = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/team/get-teams`, {
+        const url = `${externeURL}/api/team/get-teams`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
         if (!response.ok) {
@@ -64,7 +70,9 @@ export default function Home() {
     fetchTeam()
     const getNews = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/news/get-news`, {
+        const url = `${externeURL}/api/news/get-news`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
         if (!response.ok) {

@@ -9,8 +9,10 @@ const Page = ({ params }: { params: { newsId: number } }) => {
     useEffect(() => {
         const getNews = async () => {
             try {
-                const response = await fetch(`${externeURL}/api/news/get-news`,{
-                    redirect:'follow'
+                const url = `${externeURL}/api/news/get-news`
+                console.log('Fetching URL:', url)
+                const response = await fetch(url, {
+                  redirect: 'follow'
                 })
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
