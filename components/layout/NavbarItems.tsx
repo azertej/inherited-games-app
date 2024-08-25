@@ -38,12 +38,24 @@ const NavbarItems = ({ open, setOpen }: openItemsProps) => {
   const pathname = usePathname()
 
   const [games, setGames] = useState([])
-  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3000'
+  const externeURL = 'https://inherited-games-bo.vercel.app'
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`${externeURL}/api/games/get-games`)
-      const data = await response.json()
-      setGames(data)
+      try {
+        const url = `${externeURL}/api/games/get-games`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setGames(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+
     }
     fetchPosts()
   }, [externeURL])
@@ -69,7 +81,7 @@ const NavbarItems = ({ open, setOpen }: openItemsProps) => {
             {games.map((game: any) => {
               return (
                 <DropdownMenuItem key={game._id}>
-                  <TransitionLinks href={`/games/${game._id}` }>
+                  <TransitionLinks href={`/games/${game._id}`}>
                     <div className='flex' onClick={() => setOpen((prev: any) => !prev)}>
                       <Gamepad2 size={20} /> <span className="ml-2">{game.title}</span>
                     </div>
