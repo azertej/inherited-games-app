@@ -11,7 +11,7 @@ import { Fade } from "react-awesome-reveal"
 const Page = () => {
   const externeURL = 'https://inherited-games-bo.vercel.app/'
   const completion = useScrollProgress()
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState<any>([])
   const router = useRouter()
   useEffect(() => {
     const fetchEvents = async () => {
