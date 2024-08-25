@@ -9,7 +9,7 @@ import { useToast } from '@/components/ui/use-toast'
 
 const Page = () => {
 
-    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app/'
+    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app'
     const [infos, setInfos] = useState([])
     useEffect(() => {
         const fetchInfos = async () => {
