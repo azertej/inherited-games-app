@@ -1,11 +1,9 @@
-'use client'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { RiRidingFill, RiVidiconFill, RiVipCrown2Fill } from 'react-icons/ri'
 import { ArrowBigLeft, ArrowBigRight } from 'lucide-react'
 // @ts-ignore
 import { Fade } from "react-awesome-reveal"
-
 
 const infoData = [
   { icon: <RiRidingFill />, text: 'Inherited Games' },
@@ -14,30 +12,28 @@ const infoData = [
   { icon: <RiRidingFill />, text: 'Pôle technologique de Sousse' }
 ]
 
-
-const Page = () => {
-  const externeURL = 'https://inherited-games-bo.vercel.app/'
-  const [infos, setInfos] = useState<any>([])
-  const [imageIndex, setImageIndex] = useState(0)
-
-
-
-  useEffect(() => {
-    const fetchInfos = async () => {
-      try {
-        const response = await fetch(`${externeURL}/api/aboutPage/get-aboutPage`)
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-        const data = await response.json()
-        console.log(data)
-        setInfos(data)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
+export async function getServerSideProps() {
+  const externeURL = 'https://inherited-games-bo.vercel.app'
+  let infos = []
+  try {
+    const response = await fetch(`${externeURL}/api/aboutPage/get-aboutPage`)
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
     }
-    fetchInfos()
-  }, [externeURL])
+    infos = await response.json()
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
+
+  return {
+    props: {
+      infos,
+    }
+  }
+}
+
+const Page = ({ infos }: any) => {
+  const [imageIndex, setImageIndex] = useState(0)
 
   const nextImage = () => {
     setImageIndex((index) => {
