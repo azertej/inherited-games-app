@@ -8,14 +8,16 @@ import { Fade } from "react-awesome-reveal"
 import { useToast } from '@/components/ui/use-toast'
 
 const Page = () => {
-    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app'
+    const externeURL = 'https://inherited-games-bo.vercel.app'
     const [infos, setInfos] = useState([])
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const url = `${externeURL}/api/Career-events/get-events/`
+                const url = `${externeURL}/api/Career-events/get-events`
                 console.log('Fetching URL:', url)
-                const response = await fetch(url)
+                const response = await fetch(url,{
+                    redirect:'follow'
+                })
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
                 }
