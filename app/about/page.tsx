@@ -22,13 +22,12 @@ const Page = () => {
     const fetchInfos = async () => {
       try {
         const response = await fetch(`${externeURL}/api/aboutPage/get-aboutPage`, {
-          redirect: 'follow'  // Handle redirects automatically
+          redirect: 'follow' 
         })
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
         const data = await response.json()
-        console.log(data)
         setInfos(data)
       } catch (error) {
         console.error('Error fetching data:', error)

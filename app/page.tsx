@@ -7,7 +7,7 @@ import Hero from '@/components/layout/Hero';
 
 
 export default function Home() {
-  
+
   const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app/'
   const [games, setGames] = useState([])
   const [infos, setInfos] = useState([])
@@ -16,27 +16,65 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`${externeURL}/api/games/get-games`)
-      const data = await response.json()
-      setGames(data)
+      try {
+        const response = await fetch(`${externeURL}/api/games/get-games`, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setGames(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+
     }
     fetchPosts()
     const fetchInfos = async () => {
-      const response = await fetch(`${externeURL}/api/landingPage/get-heroSection-info`)
-      const data = await response.json()
-      setInfos(data)
+      try {
+        const response = await fetch(`${externeURL}/api/landingPage/get-heroSection-info`, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setInfos(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+
     }
     fetchInfos()
     const fetchTeam = async () => {
-      const response = await fetch(`${externeURL}/api/team/get-teams`)
-      const data = await response.json()
-      setTeams(data)
+      try {
+        const response = await fetch(`${externeURL}/api/team/get-teams`, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setTeams(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
     }
     fetchTeam()
     const getNews = async () => {
-      const response = await fetch(`${externeURL}/api/news/get-news`)
-      const data = await response.json()
-      setNews(data)
+      try {
+        const response = await fetch(`${externeURL}/api/news/get-news`, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setNews(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
     }
     getNews()
   }, [externeURL])

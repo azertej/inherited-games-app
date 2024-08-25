@@ -14,9 +14,19 @@ const Page = ({ params }: { params: { gameId: number } }) => {
   const [games, setGames] = useState([])
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`${externeURL}/api/games/get-games`)
-      const data = await response.json()
-      setGames(data)
+      try {
+        const response = await fetch(`${externeURL}/api/games/get-games`, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setGames(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+
     }
     fetchPosts()
   }, [externeURL])
@@ -50,10 +60,10 @@ const Page = ({ params }: { params: { gameId: number } }) => {
                     </div>
                     <div className="flex flex-col items-center md:items-end gap-y-3">
                       <div className="relative w-48 md:w-60 h-48 border-[4px] border-solid border-white shadow-2xl">
-                        <Image src={currentGame?.images[1]}  alt='image2' fill />
+                        <Image src={currentGame?.images[1]} alt='image2' fill />
                       </div>
                       <div className="relative w-72 md:w-80 h-44 border-[4px] border-solid border-white shadow-2xl">
-                        <Image src={currentGame?.images[2]}  alt='image3' fill />
+                        <Image src={currentGame?.images[2]} alt='image3' fill />
                       </div>
                     </div>
                   </div>

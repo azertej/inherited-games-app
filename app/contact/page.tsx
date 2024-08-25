@@ -13,13 +13,22 @@ const Page = () => {
     const [infos, setInfos] = useState([])
     useEffect(() => {
         const fetchInfos = async () => {
-            const response = await fetch(`${externeURL}/api/contactPage/get-contactPage`)
-            const data = await response.json()
-            setInfos(data)
+            try {
+                const response = await fetch(`${externeURL}/api/contactPage/get-contactPage`, {
+                    redirect: 'follow'
+                })
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                const data = await response.json()
+                setInfos(data)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            }
         }
         fetchInfos()
     }, [externeURL])
-    
+
 
     const router = useRouter()
     const { toast } = useToast()
@@ -29,7 +38,7 @@ const Page = () => {
         email: '',
         description: ''
     })
-    const postContact = async (e:React.FormEvent<HTMLFormElement>) => {
+    const postContact = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         try {
             const response = await fetch('/api/contactAPI/create-contact', {

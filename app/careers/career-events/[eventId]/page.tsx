@@ -8,15 +8,24 @@ const Page = ({ params }: { params: { eventId: number } }) => {
     const [events, setEvents] = useState([])
     useEffect(() => {
         const fetchEvents = async () => {
-            const response = await fetch(`${externeURL}/api/Career-events/get-events`)
-            const data = await response.json()
-            setEvents(data)
+            try {
+                const response = await fetch(`${externeURL}/api/Career-events/get-events`, {
+                    redirect: 'follow'
+                })
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                const data = await response.json()
+                setEvents(data)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            }
         }
         fetchEvents()
     }, [externeURL])
 
     const { eventId } = params
-    const currentEevent : any = events.find((event: any) => {
+    const currentEevent: any = events.find((event: any) => {
         return event._id = eventId
     })
     const [imageIndex, setImageIndex] = useState(0)

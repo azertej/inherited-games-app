@@ -15,9 +15,19 @@ const Page = () => {
   const router = useRouter()
   useEffect(() => {
     const fetchEvents = async () => {
-      const response = await fetch(`${externeURL}/api/Career-events/get-events`)
-      const data = await response.json()
-      setEvents(data)
+      try {
+        const response = await fetch(`${externeURL}/api/Career-events/get-events`, {
+          redirect: 'follow'
+        })
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        setEvents(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+
     }
     fetchEvents()
   }, [externeURL])
