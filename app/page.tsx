@@ -8,7 +8,7 @@ import Hero from '@/components/layout/Hero';
 
 export default function Home() {
 
-  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app/'
+  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'https://inherited-games-bo.vercel.app'
   const [games, setGames] = useState([])
   const [infos, setInfos] = useState([])
   const [teams, setTeams] = useState([])
