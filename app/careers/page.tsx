@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react'
 import { Fade } from "react-awesome-reveal"
 
 const Page = () => {
-  const externeURL = 'https://inherited-games-bo.vercel.app'
+  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
   const completion = useScrollProgress()
   const [events, setEvents] = useState<any>([])
   const router = useRouter()

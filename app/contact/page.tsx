@@ -8,7 +8,7 @@ import { Fade } from "react-awesome-reveal"
 import { useToast } from '@/components/ui/use-toast'
 
 const Page = () => {
-    const externeURL = 'https://inherited-games-bo.vercel.app'
+    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
     const [infos, setInfos] = useState([])
     useEffect(() => {
         const fetchEvents = async () => {

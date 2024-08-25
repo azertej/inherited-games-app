@@ -14,7 +14,7 @@ const infoData = [
 ]
 
 const Page = () => {
-  const externeURL = 'https://inherited-games-bo.vercel.app'
+  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
   const [infos, setInfos] = useState<any>([])
   const [imageIndex, setImageIndex] = useState(0)
 

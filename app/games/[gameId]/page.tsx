@@ -10,7 +10,7 @@ import { Fade } from "react-awesome-reveal"
 
 const Page = ({ params }: { params: { gameId: number } }) => {
 
-  const externeURL = 'https://inherited-games-bo.vercel.app'
+  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
   const [games, setGames] = useState([])
   useEffect(() => {
     const fetchPosts = async () => {

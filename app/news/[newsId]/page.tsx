@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 const Page = ({ params }: { params: { newsId: number } }) => {
 
-    const externeURL = 'https://inherited-games-bo.vercel.app'
+    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
     const [news, setNews] = useState([])
     useEffect(() => {
         const getNews = async () => {
