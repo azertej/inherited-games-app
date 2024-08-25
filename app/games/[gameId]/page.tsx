@@ -15,7 +15,9 @@ const Page = ({ params }: { params: { gameId: number } }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/games/get-games`, {
+        const url = `${externeURL}/api/games/get-games`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
         if (!response.ok) {
