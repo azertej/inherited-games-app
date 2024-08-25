@@ -13,7 +13,7 @@ const Page = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const url = `${externeURL}/api/Career-events/get-events`
+                const url = `${externeURL}/api/contactPage/get-contactPage`
                 console.log('Fetching URL:', url)
                 const response = await fetch(url,{
                     redirect:'follow'
