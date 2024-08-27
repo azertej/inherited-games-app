@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import { Gamepad2 } from 'lucide-react'
 // @ts-ignore
-import { Link } from 'react-scroll'
+import { Link, scroller } from 'react-scroll'
 import { TransitionLinks } from '@/lib/TransitionLinks'
 import { cn } from '@/lib/utils'
 import { usePathname } from '@/node_modules/next/navigation'
@@ -59,19 +59,25 @@ const NavbarItems = ({ open, setOpen }: openItemsProps) => {
     }
     fetchPosts()
   }, [externeURL])
+
   return (
     <div className='flex flex-col md:flex-row items-center gap-6 z-20 md:max-w-[800px]'>
       <div className={cn('block md:hidden', itemClassName)} onClick={() => setOpen((prev: any) => !prev)}>
         <TransitionLinks href='/' className='group-hover:scale-110 duration-200 ease-in '>HOME</TransitionLinks>
       </div>
-      <div className={itemClassName} >
-        <div className='group-hover:scale-110 duration-200 ease-in '>
-          <Link
-            activeClass="active" to="news" spy={true} smooth={true} offset={50} duration={1200}
-            onClick={() => setOpen((prev: any) => !prev)}
-          > NEWS </Link>
+      {pathname === '/' && (
+        <div className={itemClassName} >
+          <div className='group-hover:scale-110 duration-200 ease-in '>
+            <Link
+              activeClass="active" to="news" spy={true} smooth={true} offset={50} duration={1200}
+              onClick={() => {
+                setOpen((prev: any) => !prev)
+              }
+              }
+            > NEWS </Link>
+          </div>
         </div>
-      </div>
+      )}
       <div className={itemClassName}>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
