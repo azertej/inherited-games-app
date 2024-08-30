@@ -67,8 +67,8 @@ const Page = () => {
     }
 
     return (
-        <section className='flex justify-center items-center h-auto lg:h-screen bg-opacity-80 ' style={{ backgroundImage: `url('/backround.jpg')`, backgroundSize: '100% 100%' }}>
-            <div className='mx-auto flex flex-col mt-20 bg-gray-100 bg-opacity-40  p-0 lg:p-10 rounded-xl'>
+        <section className='flex justify-center items-center w-full h-auto lg:h-screen bg-opacity-80 ' style={{ backgroundImage: `url('/backround.jpg')`, backgroundSize: '100% 100%' }}>
+            <div className='mx-auto flex flex-col mt-20 bg-gray-100 bg-opacity-40 w-[90%] md:w-auto mb-5 md:mb-0 p-0 lg:p-10 rounded-xl'>
                 <div className='grid md:grid-cols-2 mt-10 lg:mt-0 px-10 md:px-0 gap-x-10'>
                     {infos.map((info: any, index) => (
                         <div key={index} className='flex flex-col justify-center max-w-[600px]'>
@@ -82,7 +82,7 @@ const Page = () => {
                                 <span className='text-5xl font-bold'>{info.shortDescription} </span>
                             </Fade>
                             <Fade direction='left' delay={800} cascade damping={1e-1} triggerOnce={true} >
-                                <p className=' maxw-[300px] lg:max-w-[500px] mt-3 my-2 md:my-2 font-semibold'>{info.description}</p>
+                                <p className=' max-w-[300px] lg:max-w-[500px] mt-3 my-2 md:my-2 font-semibold'>{info.description}</p>
                             </Fade>
                         </div>
                     ))}

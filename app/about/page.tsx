@@ -56,7 +56,7 @@ const Page = () => {
 
   return (
     <section className='flex flex-col justify-center items-center lg:h-full h-auto w-full' style={{ backgroundImage: `url('/backround.jpg')`, backgroundSize: '100% 100%' }}>
-      <div className='mt-20 mb-16'>
+      <div className='mt-20 mb-16 w-[90%] md:w-auto '>
         {infos.map((info: any, index: any) => (
           <div key={index} className='mx-0 md:mx-auto mt-20 flex flex-col items-center gap-y-20 bg-gray-100 bg-opacity-40 py-14 lg:p-10 rounded-xl'>
             <Fade direction='up' delay={400} cascade damping={0.1} triggerOnce={true} className='mx-auto'>
