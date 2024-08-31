@@ -1,6 +1,7 @@
 import { connectToDB } from "@/lib/database"
 import { contactModel } from "@/models/contactModel"
 
+export const revalidate = 1
 export const GET = async (req: any) => {
     try {
         await connectToDB()
